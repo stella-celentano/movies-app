@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from "@angular/router";
 
 // Importanções do Material
-import {MatToolbarModule} from "@angular/material/toolbar";
+import { MatToolbarModule } from "@angular/material/toolbar";
 
 import { NavigationComponent } from './navigation.component';
 
@@ -14,7 +15,8 @@ import { NavigationComponent } from './navigation.component';
   ],
   imports: [
     CommonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    RouterModule
   ],
   exports: [
     NavigationComponent
