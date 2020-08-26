@@ -16,8 +16,8 @@ import { NavigationComponent } from './navigation.component';
   ],
   imports: [
     CommonModule,
-    MatToolbarModule,
     RouterModule,
+    MatToolbarModule,
     MatButtonModule
   ],
   exports: [
