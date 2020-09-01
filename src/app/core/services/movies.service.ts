@@ -16,7 +16,7 @@ export class MoviesService {
   }
 
   findMovieByName(movieName: String): Observable<HttpResponse<Filme>> {
-    return this.http.get<Filme>(`${API_URL}/filme/ListarUm/${movieName}`, { observe: 'response' })
+    return this.http.get<Filme>(`${API_URL}/filme/listarUm/${movieName}`, { observe: 'response' })
   }
 
 }

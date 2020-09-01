@@ -26,10 +26,11 @@
     color: rgb(120,120,120);
 }
 
-.movieInforBold {
+.movieInfoBold {
     color: rgb(115,115,115);
 }
 
 .movieSynopsis {
     text-align: justify;
+    text-justify: inter-word;
 }

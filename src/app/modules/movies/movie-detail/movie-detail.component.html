@@ -1,13 +1,14 @@
 <app-loading *ngIf="!Filme"></app-loading>
 <div *ngIf="Filme" class="content" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="start center"
-    fxLayoutAlign.gt-sm="center star" fxLayoutGap="16px">
+    fxLayoutAlign.gt-sm="center start" fxLayoutGap="16px">
     <div fxFlex="50%" fxFlex.gt-sm="25%">
         <mat-card class="mat-elevation-z0">
             <img mat-card-image class="movieCover" [src]="Filme.imagem" alt="Photo of a {{Filme.nome}}">
         </mat-card>
         <mat-card class="mat-elevation-z3">
             <mat-card-header>
-                <img mat-card-avatar class="directorImage" [src]="Filme.diretor.imagem" alt="Photo of a {{Filme.diretor.nome}}">
+                <img mat-card-avatar class="directorImage" [src]="Filme.diretor.imagem"
+                    alt="Photo of a {{Filme.diretor.nome}}">
                 <div class="directorName">{{Filme.diretor.nome}}</div>
             </mat-card-header>
         </mat-card>
@@ -20,16 +21,16 @@
                 <span class="movieInfo">{{Filme.genero}}</span>
                 <br>
                 <span *ngIf="Filme.dataLancamento" class="movieInfo">
-                   Lançado em: {{Filme.dataLancamento | date: 'dd/MM/yyyy' }}
+                    Lançado em: {{Filme.dataLancamento | date: 'dd/MM/yyyy' }}
                 </span>
             </div>
             <div *ngIf="Filme.classificacaoIndicativa || Filme.duracao" class="row">
                 <span *ngIf="Filme.classificacaoIndicativa" class="movieInfo">
-                   <b class="movieInfoBold">Classificação Indicativa: </b> 
-                   {{Filme.classificacaoIndicativa}}
+                    <b class="movieInfoBold">Classificação Indicativa: </b>
+                    {{Filme.classificacaoIndicativa}}
                 </span>
                 &nbsp;
-                <span *ngIf="Filme.duracao">
+                <span *ngIf="Filme.duracao" class="movieInfo">
                     <b class="movieInfoBold">Duranção do filme: </b>
                     {{Filme.duracao}}
                 </span>
