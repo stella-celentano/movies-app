@@ -1,4 +1,5 @@
-<div class="content" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="start center"
+<app-loading *ngIf="!Filme"></app-loading>
+<div *ngIf="Filme" class="content" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="start center"
     fxLayoutAlign.gt-sm="center star" fxLayoutGap="16px">
     <div fxFlex="50%" fxFlex.gt-sm="25%">
         <mat-card class="mat-elevation-z0">
@@ -28,7 +29,10 @@
                    {{Filme.classificacaoIndicativa}}
                 </span>
                 &nbsp;
-                <span *ngIf="Filme.duracao">Duranção do filme: {{Filme.duracao}}</span>
+                <span *ngIf="Filme.duracao">
+                    <b class="movieInfoBold">Duranção do filme: </b>
+                    {{Filme.duracao}}
+                </span>
             </div>
             <div class="row">
                 <p class="movieSynopsis">{{Filme.sinopse}}</p>
