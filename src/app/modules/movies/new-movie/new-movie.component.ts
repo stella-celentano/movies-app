@@ -1,13 +1,12 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { CdkTextareaAutosize} from "@angular/cdk/text-field"
+import { CdkTextareaAutosize } from "@angular/cdk/text-field"
+import { MatDialogRef } from "@angular/material/dialog"
 import { Subscription } from "rxjs";
 import { Diretor } from "./../../../core/models/diretor.model";
 import { DirectorsService } from "./../../../core/services/directors.service"
-import {MyToastrService} from "./../../../core/services/toastr.service";
-
-import {MoviesService} from "./../../../core/services/movies.service"
-import { templateJitUrl } from '@angular/compiler';
+import { MyToastrService } from "./../../../core/services/toastr.service";
+import { MoviesService } from "./../../../core/services/movies.service";
 
 @Component({
   selector: 'app-new-movie',
@@ -30,7 +29,8 @@ export class NewMovieComponent implements OnInit, OnDestroy {
     private directorsService: DirectorsService,
     private builder: FormBuilder,
     private toastr: MyToastrService,
-    private moviesService: MoviesService
+    private moviesService: MoviesService,
+    private dialogRef: MatDialogRef<NewMovieComponent>
   ) { }
 
   ngOnInit(): void {
@@ -98,7 +98,7 @@ export class NewMovieComponent implements OnInit, OnDestroy {
     }
   }
 
-  createNewDirector(formValueDirector: Diretor):void {
+  createNewDirector(formValueDirector: Diretor): void {
     this.httpRequest = this.directorsService.createNewDirector(formValueDirector).subscribe(response => {
       this.movieFormGroup.controls['diretor'].setValue(response.body['data']['_id'])
       this.stepDirectorLabel = `Diretor: ${response.body['data']['nome']}`
@@ -111,9 +111,15 @@ export class NewMovieComponent implements OnInit, OnDestroy {
   createNewMovie(): void {
     this.httpRequest = this.moviesService.createNewMovie(this.movieFormGroup.value).subscribe(response => {
       this.toastr.showToastrSuccess(`O filme ${response.body['data']['nome']} foi adicionado com sucesso`)
+      this.dialogRef.close(true)
     }, err => {
       this.toastr.showToastrError(`${err.error['message']}`)
+      this.dialogRef.close(false)
     })
+  }
+
+  closeDialog(): void {
+    this.dialogRef.close(false)
   }
 
 }
