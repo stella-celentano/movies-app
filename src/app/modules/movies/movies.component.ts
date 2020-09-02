@@ -44,6 +44,13 @@ export class MoviesComponent implements OnInit, OnDestroy {
       height: '600px',
       disableClose: true
     })
+
+    dialogRef.afterClosed().subscribe(newMovieAdded => {
+      if (newMovieAdded) {
+        this.Filmes = undefined
+        this.findAllMovies()
+      }
+    })
   }
 
 }
