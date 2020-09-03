@@ -24,7 +24,8 @@ export class DirectorValidator {
                     } else {
                         return { 'directorNameAlreadyExists': true }
                     }
-                })
+                }),
+                first()
             )
     }
 }

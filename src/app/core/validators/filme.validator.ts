@@ -24,7 +24,8 @@ export class MovieValidator {
                     } else {
                         return { 'movieNameAlreadyExists': true }
                     }
-                })
+                }),
+                first()
             )
     }
 }
