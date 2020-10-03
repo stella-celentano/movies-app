@@ -24,6 +24,7 @@ registerLocaleData(localePt, 'pt-BR')
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     NavigationModule,
+    AppRoutingModule,
     HttpClientModule
   ],
   providers: [

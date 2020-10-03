@@ -21,6 +21,10 @@ export class DirectorsService {
     return this.http.post<Diretor>(`${API_URL}/diretor/criar`, body, { observe: 'response' })
   }
 
+  findDirectorByName(directorName: String): Observable<HttpResponse<Diretor>> {
+    return this.http.get<Diretor>(`${API_URL}/diretor/listarUm/${directorName}`, { observe: 'response' })
+  }
+
   validatorUniqueDirectorName(directorName: string) {
     let myParams = new HttpParams()
     myParams = myParams.append('nome', directorName)

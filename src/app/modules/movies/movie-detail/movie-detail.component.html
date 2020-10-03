@@ -8,9 +8,11 @@
         </mat-card>
         <mat-card class="mat-elevation-z3">
             <mat-card-header>
-                <img mat-card-avatar class="directorImage" [src]="Filme.diretor.imagem" onerror="this.src='./../../../../assets/director.png'"
-                    alt="Photo of a {{Filme.diretor.nome}}">
-                <div class="directorName">{{Filme.diretor.nome}}</div>
+                <img mat-card-avatar class="directorImage" [src]="Filme.diretor.imagem"
+                    onerror="this.src='./../../../../assets/director.png'" alt="Photo of a {{Filme.diretor.nome}}"
+                    [routerLink]="['/directors/detail', Filme.diretor.nome]">
+                <div class="directorName routerLinkClass" [routerLink]="['/directors/detail', Filme.diretor.nome]">
+                    {{Filme.diretor.nome}}</div>
             </mat-card-header>
         </mat-card>
     </div>

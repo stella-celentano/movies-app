@@ -124,8 +124,8 @@ export class NewMovieComponent implements OnInit, OnDestroy {
     })
   }
 
-  closeDialog(): void {
-    this.dialogRef.close(false)
+  closeDialog(b: boolean = false): void {
+    this.dialogRef.close(b)
   }
 
   setDateFormattedOnMovieForm(value: string): void {

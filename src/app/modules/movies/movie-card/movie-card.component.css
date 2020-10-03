@@ -10,10 +10,10 @@
     width: 200px;
 }
 
-.routerLinkMovie {
+.routerLinkClass {
     cursor: pointer;
 }
 
-.routerLinkMovie:hover {
+.routerLinkClass:hover {
     text-decoration: underline;
 }
