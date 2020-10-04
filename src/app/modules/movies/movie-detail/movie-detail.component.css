@@ -1,0 +1,30 @@
+.content {
+    padding: 10px;
+}
+
+.movieCover {
+    height: 400px;
+    max-width: 400px;
+}
+
+.directorImage {
+    background-size: cover;
+}
+
+.directorName {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: -20px;
+}
+
+.movieInfoBold {
+    color: rgb(115, 115, 115);
+}
+
+.routerLinkClass {
+    cursor: pointer;
+}
+
+.routerLinkClass:hover {
+    text-decoration: underline;
+}
